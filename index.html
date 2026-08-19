@@ -10,12 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="tjander3 home">tjander3<span>.</span></a>
       <nav aria-label="Primary navigation">
         <a href="#about">About</a>
+        <a href="#projects">Projects</a>
         <a href="#strava">Strava</a>
         <a href="#resume">Résumé</a>
         <a href="https://github.com/tjander3" target="_blank" rel="noreferrer">GitHub</a>
@@ -31,7 +33,7 @@
           learn, and find worth sharing.
         </p>
         <div class="actions">
-          <a class="button button-primary" href="https://github.com/tjander3" target="_blank" rel="noreferrer">See my GitHub</a>
+          <a class="button button-primary" href="#projects">See my projects</a>
           <a class="button button-secondary" href="#about">More about me</a>
         </div>
       </section>
@@ -43,16 +45,113 @@
         </div>
         <div class="about-copy">
           <p>
-            This is the first version of my personal site. Soon, this space will
-            hold more about me, my interests, and the projects I'm working on.
+            This is where I collect the systems, experiments, and practical
+            tools I build around the things I care about.
           </p>
-          <p class="note">In the meantime, you can follow along on GitHub.</p>
+          <p class="note">Follow a project from the first prototype through the useful version.</p>
+        </div>
+      </section>
+
+      <section class="projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="projects-intro">
+          <div>
+            <p class="section-number">02 / PROJECTS</p>
+            <h2 id="projects-title">Things made<br>to be used.</h2>
+          </div>
+          <p>
+            A rotating selection of hands-on builds that combine software,
+            hardware, and everyday problems worth solving.
+          </p>
+        </div>
+
+        <div class="project-carousel" data-carousel>
+          <div class="carousel-toolbar">
+            <p class="carousel-status" data-carousel-status aria-live="polite">01 / 01</p>
+            <div class="carousel-buttons" aria-label="Project carousel controls">
+              <button class="carousel-button" type="button" data-carousel-prev aria-label="Previous project">
+                <span aria-hidden="true">&larr;</span>
+              </button>
+              <button class="carousel-button" type="button" data-carousel-next aria-label="Next project">
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="project-track" data-carousel-track tabindex="0" aria-label="Featured projects">
+            <article class="project-card" data-project-card>
+              <div class="project-copy">
+                <div class="project-meta">
+                  <span>HOME AUTOMATION</span>
+                  <span>2026</span>
+                </div>
+                <h3>Cold Storage Monitor</h3>
+                <p>
+                  A Dockerized RTL-SDR system that records refrigerator and
+                  freezer temperatures, charts their history, detects missing
+                  sensors, and sends email alerts.
+                </p>
+                <ul class="project-tags" aria-label="Technologies used">
+                  <li>Python</li>
+                  <li>RTL-SDR</li>
+                  <li>Docker</li>
+                  <li>SQLite</li>
+                </ul>
+                <div class="project-links">
+                  <a class="button project-button" href="https://github.com/tjander3/fridge-temperature-monitor" target="_blank" rel="noreferrer">
+                    View project <span aria-hidden="true">&nearr;</span>
+                  </a>
+                  <a class="text-link" href="https://github.com/tjander3/fridge-temperature-monitor#readme" target="_blank" rel="noreferrer">
+                    Read the build guide <span aria-hidden="true">&nearr;</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="monitor-preview" role="img" aria-label="Example refrigerator and freezer readings">
+                <div class="monitor-heading">
+                  <span>SYSTEM PREVIEW</span>
+                  <span><span class="preview-status-dot" aria-hidden="true"></span> DEMO DATA</span>
+                </div>
+                <div class="preview-sensor">
+                  <div>
+                    <span class="preview-label">DRINKS FRIDGE</span>
+                    <strong>39.8<small>&deg;F</small></strong>
+                  </div>
+                  <span class="preview-state">OK</span>
+                </div>
+                <div class="preview-sensor">
+                  <div>
+                    <span class="preview-label">FOOD FREEZER</span>
+                    <strong>-2.4<small>&deg;F</small></strong>
+                  </div>
+                  <span class="preview-state">OK</span>
+                </div>
+                <div class="preview-chart" aria-hidden="true">
+                  <span style="--height: 45%"></span>
+                  <span style="--height: 54%"></span>
+                  <span style="--height: 48%"></span>
+                  <span style="--height: 60%"></span>
+                  <span style="--height: 56%"></span>
+                  <span style="--height: 64%"></span>
+                  <span style="--height: 61%"></span>
+                  <span style="--height: 72%"></span>
+                  <span style="--height: 68%"></span>
+                  <span style="--height: 76%"></span>
+                  <span style="--height: 71%"></span>
+                  <span style="--height: 82%"></span>
+                </div>
+                <div class="monitor-footer">
+                  <span>433.92 MHz</span>
+                  <span>UPDATED EVERY 2 MIN</span>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
       <section class="strava-section" id="strava" aria-labelledby="strava-title">
         <div class="strava-copy">
-          <p class="section-number strava-label">02 / ON THE MOVE</p>
+          <p class="section-number strava-label">03 / ON THE MOVE</p>
           <h2 id="strava-title">Miles happen<br>out there.</h2>
           <p>
             Follow my rides, runs, and everything in between. The work happens
@@ -86,7 +185,7 @@
       <section class="resume-section" id="resume" aria-labelledby="resume-title">
         <div class="resume-intro">
           <div>
-            <p class="section-number">03 / RÉSUMÉ</p>
+            <p class="section-number">04 / RÉSUMÉ</p>
             <h2 id="resume-title">The work,<br>on paper.</h2>
           </div>
           <div class="resume-copy">
