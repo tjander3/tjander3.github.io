@@ -60,7 +60,7 @@ if (trainingStats) {
 
   const renderTrainingStats = (snapshot) => {
     if (
-      snapshot?.schemaVersion !== 1 ||
+      snapshot?.schemaVersion !== 2 ||
       snapshot.unit !== "lb" ||
       !/^\d{4}-\d{2}-\d{2}$/.test(snapshot.asOf) ||
       !Array.isArray(snapshot.lifts) ||
@@ -75,14 +75,14 @@ if (trainingStats) {
       if (
         !lift ||
         !Number.isFinite(lift.trainingMax) ||
-        !Number.isFinite(lift.estimatedOneRepMax)
+        !Number.isFinite(lift.max)
       ) {
         throw new Error("Incomplete training stats.");
       }
 
       const row = trainingStats.querySelector(`[data-training-lift="${id}"]`);
       row.querySelector('[data-stat="trainingMax"]').textContent = formatWeight.format(lift.trainingMax);
-      row.querySelector('[data-stat="estimatedOneRepMax"]').textContent = formatWeight.format(lift.estimatedOneRepMax);
+      row.querySelector('[data-stat="max"]').textContent = formatWeight.format(lift.max);
     }
 
     const asOf = new Date(`${snapshot.asOf}T12:00:00Z`).toLocaleDateString("en-US", {
