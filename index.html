@@ -174,29 +174,41 @@
                 </div>
               </div>
 
-              <div class="monitor-preview lifting-preview" role="img" aria-label="Synthetic 5/3/1 deload cycle preview with a 200 pound training max and sets at 40, 50, and 60 percent">
+              <div class="monitor-preview lifting-preview" data-training-stats aria-label="Current public lifting statistics">
                 <div class="monitor-heading">
-                  <span>CYCLE PREVIEW</span>
-                  <span><span class="preview-status-dot" aria-hidden="true"></span> TESTED</span>
+                  <span>CURRENT NUMBERS</span>
+                  <span><span class="preview-status-dot" aria-hidden="true"></span> AUTO-SYNCED</span>
                 </div>
-                <div class="cycle-summary">
-                  <div>
-                    <span class="preview-label">TRAINING MAX</span>
-                    <strong>200<small>LB</small></strong>
-                  </div>
-                  <span class="cycle-badge">DELOAD</span>
-                </div>
-                <div class="cycle-sets" aria-hidden="true">
-                  <div><span>40%</span><strong>80 &times; 5</strong></div>
-                  <div><span>50%</span><strong>100 &times; 5</strong></div>
-                  <div><span>60%</span><strong>120 &times; 5</strong></div>
-                </div>
-                <div class="cycle-pipeline" aria-hidden="true">
-                  <span>TEST</span><i></i><span>DEPLOY</span><i></i><span>SYNC</span>
-                </div>
+                <table class="training-stats-table">
+                  <caption>Training maxes and estimated one-rep maxes in pounds</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Lift</th>
+                      <th scope="col">TM</th>
+                      <th scope="col">Est. 1RM</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr data-training-lift="squat">
+                      <th scope="row">Squat</th>
+                      <td><strong data-stat="trainingMax">450</strong><small>LB</small></td>
+                      <td><strong data-stat="estimatedOneRepMax">444</strong><small>LB</small></td>
+                    </tr>
+                    <tr data-training-lift="bench">
+                      <th scope="row">Bench</th>
+                      <td><strong data-stat="trainingMax">380</strong><small>LB</small></td>
+                      <td><strong data-stat="estimatedOneRepMax">378.2</strong><small>LB</small></td>
+                    </tr>
+                    <tr data-training-lift="deadlift">
+                      <th scope="row">Deadlift</th>
+                      <td><strong data-stat="trainingMax">550</strong><small>LB</small></td>
+                      <td><strong data-stat="estimatedOneRepMax">545</strong><small>LB</small></td>
+                    </tr>
+                  </tbody>
+                </table>
                 <div class="monitor-footer">
-                  <span>SYNTHETIC DATA</span>
-                  <span>40 / 50 / 60</span>
+                  <span data-training-as-of>AS OF AUG 16, 2026</span>
+                  <span>TM / EST. 1RM</span>
                 </div>
               </div>
             </article>

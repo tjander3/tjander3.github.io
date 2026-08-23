@@ -51,3 +51,54 @@ if (carousel) {
   if (cards.length <= 1) carousel.classList.add("is-single");
   updateControls();
 }
+
+const trainingStats = document.querySelector("[data-training-stats]");
+
+if (trainingStats) {
+  const allowedLifts = ["squat", "bench", "deadlift"];
+  const formatWeight = new Intl.NumberFormat("en-US", {maximumFractionDigits: 1});
+
+  const renderTrainingStats = (snapshot) => {
+    if (
+      snapshot?.schemaVersion !== 1 ||
+      snapshot.unit !== "lb" ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(snapshot.asOf) ||
+      !Array.isArray(snapshot.lifts) ||
+      snapshot.lifts.length !== allowedLifts.length
+    ) {
+      throw new Error("Unexpected training stats format.");
+    }
+
+    const lifts = new Map(snapshot.lifts.map((lift) => [lift.id, lift]));
+    for (const id of allowedLifts) {
+      const lift = lifts.get(id);
+      if (
+        !lift ||
+        !Number.isFinite(lift.trainingMax) ||
+        !Number.isFinite(lift.estimatedOneRepMax)
+      ) {
+        throw new Error("Incomplete training stats.");
+      }
+
+      const row = trainingStats.querySelector(`[data-training-lift="${id}"]`);
+      row.querySelector('[data-stat="trainingMax"]').textContent = formatWeight.format(lift.trainingMax);
+      row.querySelector('[data-stat="estimatedOneRepMax"]').textContent = formatWeight.format(lift.estimatedOneRepMax);
+    }
+
+    const asOf = new Date(`${snapshot.asOf}T12:00:00Z`).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    });
+    trainingStats.querySelector("[data-training-as-of]").textContent = `AS OF ${asOf.toUpperCase()}`;
+  };
+
+  fetch("data/training-stats.json", {cache: "no-store"})
+    .then((response) => {
+      if (!response.ok) throw new Error(`Training stats request failed (${response.status}).`);
+      return response.json();
+    })
+    .then(renderTrainingStats)
+    .catch((error) => console.warn("Using last known training stats.", error));
+}

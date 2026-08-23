@@ -477,87 +477,68 @@ h2 {
   box-shadow: 0 0 0 5px rgba(255, 135, 95, 0.14);
 }
 
-.cycle-summary {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-  padding: 1.5rem 0;
-  border-top: 1px solid rgba(255, 244, 223, 0.2);
-  border-bottom: 1px solid rgba(255, 244, 223, 0.2);
-}
-
-.cycle-summary strong {
-  font-size: clamp(2.8rem, 6vw, 4.7rem);
-  font-weight: 500;
-  letter-spacing: -0.07em;
-  line-height: 0.9;
-}
-
-.cycle-summary small {
-  margin-left: 0.35rem;
+.training-stats-table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
   font-family: "DM Mono", monospace;
-  font-size: 0.2em;
-  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
 }
 
-.cycle-badge {
-  padding: 0.4rem 0.6rem;
-  border: 1px solid rgba(255, 135, 95, 0.65);
-  border-radius: 99px;
-  color: #ff9a79;
-  font-family: "DM Mono", monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-}
-
-.cycle-sets {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.55rem;
-  margin-top: 1.5rem;
-}
-
-.cycle-sets div {
-  padding: 0.9rem 0.75rem;
-  border: 1px solid rgba(255, 244, 223, 0.18);
-  background: rgba(255, 244, 223, 0.045);
-}
-
-.cycle-sets span,
-.cycle-sets strong {
-  display: block;
-  font-family: "DM Mono", monospace;
-}
-
-.cycle-sets span {
-  margin-bottom: 0.45rem;
-  color: #ff9a79;
-  font-size: 0.64rem;
-}
-
-.cycle-sets strong {
-  font-size: clamp(0.82rem, 1.5vw, 1.05rem);
-  font-weight: 500;
+.training-stats-table caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
   white-space: nowrap;
 }
 
-.cycle-pipeline {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin: auto 0 1.5rem;
-  padding-top: 1.5rem;
-  color: rgba(255, 244, 223, 0.72);
-  font-family: "DM Mono", monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
+.training-stats-table th,
+.training-stats-table td {
+  padding: 1rem 0.7rem;
+  border-bottom: 1px solid rgba(255, 244, 223, 0.2);
+  text-align: right;
 }
 
-.cycle-pipeline i {
-  flex: 1;
-  height: 1px;
-  background: #ff875f;
+.training-stats-table thead th {
+  border-top: 1px solid rgba(255, 244, 223, 0.2);
+  color: rgba(255, 244, 223, 0.58);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.training-stats-table th:first-child {
+  padding-left: 0;
+  text-align: left;
+}
+
+.training-stats-table td:last-child,
+.training-stats-table th:last-child {
+  padding-right: 0;
+}
+
+.training-stats-table tbody th {
+  color: #ff9a79;
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.training-stats-table td strong {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.06em;
+}
+
+.training-stats-table td small {
+  margin-left: 0.25rem;
+  color: rgba(255, 244, 223, 0.56);
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
 }
 
 .strava-section {
