@@ -1,24 +1,24 @@
 {
   "schemaVersion": 2,
-  "asOf": "2026-08-16",
+  "asOf": "2026-09-06",
   "unit": "lb",
   "lifts": [
     {
       "id": "squat",
       "name": "Squat",
-      "trainingMax": 450,
+      "trainingMax": 455,
       "max": 440
     },
     {
       "id": "bench",
       "name": "Bench",
-      "trainingMax": 380,
+      "trainingMax": 382.5,
       "max": 365
     },
     {
       "id": "deadlift",
       "name": "Deadlift",
-      "trainingMax": 550,
+      "trainingMax": 555,
       "max": 545
     }
   ]
